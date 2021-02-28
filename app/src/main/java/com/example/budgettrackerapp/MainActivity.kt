@@ -24,22 +24,22 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = BudgetAdapter(ArrayList(), object : OnItemClickListener {
             override fun onCLick(budget: Budget) {
-                val intent = Intent(this@MainActivity, BudgetScreenActivity::class.java)
-
-                intent.putExtra("title",budget.title)
-                intent.putExtra("imageID",budget.imageID)
-                intent.putExtra("note",budget.note)
-                intent.putExtra("price",budget.price)
-                intent.putExtra("sana",budget.sana)
-
-                startActivity(intent)
-
-//                val builder  = AlertDialog.Builder(this@MainActivity)
+//                val intent = Intent(this@MainActivity, BudgetScreenActivity::class.java)
 //
-//                builder.setTitle(budget.title)
+//                intent.putExtra("title",budget.title)
+//                intent.putExtra("imageID",budget.imageID)
+//                intent.putExtra("note",budget.note)
+//                intent.putExtra("price",budget.price)
+//                intent.putExtra("sana",budget.sana)
 //
-//                val alertDialog: AlertDialog = builder.create()
-//                alertDialog.show()
+//                startActivity(intent)
+
+                val builder  = AlertDialog.Builder(this@MainActivity)
+
+                builder.setTitle(budget.title)
+
+                val alertDialog: AlertDialog = builder.create()
+                alertDialog.show()
             }
         })
 
