@@ -27,7 +27,6 @@ class BudgetAddActivity : AppCompatActivity() {
 
         val budgetDao = database.budgetDao()
 
-
         val sharedPreferences = getSharedPreferences("AllMoney", Context.MODE_PRIVATE)
 
         val editor = sharedPreferences.edit()
@@ -54,7 +53,7 @@ class BudgetAddActivity : AppCompatActivity() {
 
         binding.add.setOnClickListener {
 
-            val title = binding.name.text.toString()
+            val title = binding.title.text.toString()
             val price = binding.price.text.toString()
             val note = binding.note.text.toString()
 

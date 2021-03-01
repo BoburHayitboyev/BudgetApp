@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.budgettrackerapp.databinding.ItemaBudgetBinding
 
-class BudgetAdapter(var data: List<Budget>,var onClick: OnItemClickListener) :
+class BudgetAdapter(var data: List<Budget>,var onClick: OnItemClickListener,var longClick : OnlongClickListener) :
     RecyclerView.Adapter<BudgetAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,7 +23,7 @@ class BudgetAdapter(var data: List<Budget>,var onClick: OnItemClickListener) :
         holder.binding.title.text = data[position].title
         holder.binding.sana.text = data[position].sana
 
-        if (data[position].imageID == ("minus")){
+        if (data[position].imageID == "minus"){
             holder.binding.money.text = "-"+data[position].price+" so'm"
             holder.binding.imgLogo.setImageResource(R.drawable.ic_doira_red)
             holder.binding.money.setTextColor(Color.RED)
@@ -34,6 +34,11 @@ class BudgetAdapter(var data: List<Budget>,var onClick: OnItemClickListener) :
 
         holder.binding.root.setOnClickListener {
             onClick.onCLick(budget = data[position])
+        }
+
+        holder.binding.root.setOnLongClickListener{
+            longClick.longClick(budget = data[position])
+            return@setOnLongClickListener false
         }
 
 
